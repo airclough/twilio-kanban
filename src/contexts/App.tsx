@@ -6,23 +6,7 @@ import React, {
   useState,
 } from 'react';
 
-enum Status {
-  BACKLOG = 'BACKLOG',
-  TO_DO = 'TO_DO',
-  ONGOING = 'ONGOING',
-  DONE = 'DONE',
-}
-
-interface Task {
-  description: string;
-  name: string;
-  status: Status;
-}
-
-interface List {
-  id: string;
-  tasks: Task[];
-}
+import { List, Status, Task } from '../types/index';
 
 interface App {
   lists: List[];
