@@ -3,7 +3,7 @@ import { DragDropContext } from 'react-beautiful-dnd';
 
 import DragAndDrop from './DragAndDrop';
 import { useApp } from '../contexts/App';
-import { List } from '../types/index';
+import { List, Task, Status } from '../types/index.d';
 import { getListByStatus } from '../utils/index';
 
 const DragAnDropContainer = () => {
@@ -13,12 +13,10 @@ const DragAnDropContainer = () => {
     destinationIndex,
     sourceIndex,
     sourceList,
-    sourceListIndex,
   }: {
     destinationIndex: number;
     sourceIndex: number;
     sourceList: List;
-    sourceListIndex: number;
   } ): List => {
     const { tasks } = sourceList;
     const reorderedTasks = [ ...tasks ];
@@ -27,6 +25,30 @@ const DragAnDropContainer = () => {
     reorderedTasks.splice( destinationIndex, 0, item );
 
     return { ...sourceList, tasks: reorderedTasks };
+  };
+  const moveTask = ( {
+    destinationId,
+    destinationIndex,
+    destinationList,
+    sourceIndex,
+    sourceList,
+  }: {
+    destinationId: string;
+    destinationIndex: number;
+    destinationList: List;
+    sourceIndex: number;
+    sourceList: List;
+  } ): List[] => {
+    const { tasks: destinationTasks } = destinationList;
+    const destinationTasksClone = [ ...destinationTasks ];
+    const { tasks: sourceTasks } = sourceList;
+    const sourceTasksClone = [ ...sourceTasks ];
+    const [ task ] = sourceTasksClone.splice( sourceIndex, 1 );
+    const updatedTask = { ...task, status: Status[ destinationId ] };
+
+    destinationTasksClone.splice( destinationIndex, 0, updatedTask );
+
+    return [ { ...sourceList, tasks: sourceTasksClone }, { ...destinationList, tasks: destinationTasksClone } ];
   };
   const onDragEnd = ( result: any ) => {
     console.log( { result } );
@@ -43,13 +65,26 @@ const DragAnDropContainer = () => {
         destinationIndex,
         sourceIndex,
         sourceList,
-        sourceListIndex,
       } );
 
       listsClone[ sourceListIndex ] = newList;
       setLists( listsClone );
     } else {
-      //
+      const {
+        list: destinationList,
+        listIndex: destinationListIndex,
+      } = getListByStatus( { lists, status: destinationId } );
+      const [ newSourceList, newDestinationList ] = moveTask( {
+        destinationId,
+        destinationIndex,
+        destinationList,
+        sourceIndex,
+        sourceList,
+      } );
+
+      listsClone[ sourceListIndex ] = newSourceList;
+      listsClone[ destinationListIndex ] = newDestinationList;
+      setLists( listsClone );
     }
   };
 

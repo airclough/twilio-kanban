@@ -19,7 +19,6 @@ const DragAndDrop: FC<DragAndDropProps> = ( { status } ) => {
   const { lists } = useApp();
   const { list } = getListByStatus( { lists, status } )
   const { tasks } = list;
-  if ( !tasks.length ) return <></>;
 
   return (
     <div className="col-3 DragAndDrop">
