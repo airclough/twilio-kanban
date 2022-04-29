@@ -9,7 +9,11 @@ const DragAnDropContainer = () => {
 
   return (
     <div className="DragAnDropContainer">
-      { statuses.map( ( status, i ) => <DragAndDrop list={ getListByStatus( { lists, status } ) } status={ status } /> ) }
+      <div className="container">
+        <div className="row">
+          { statuses.map( ( status ) => <DragAndDrop list={ getListByStatus( { lists, status } ) } status={ status } /> ) }
+        </div>
+      </div>
     </div>
   );
 };

@@ -16,7 +16,7 @@ interface App {
 
 interface Props {
   children: ReactNode;
-};
+}
 
 const AppContext = createContext<App | undefined>( undefined );
 
@@ -30,7 +30,7 @@ export const AppProvider = ( { children }: Props ) => {
   ] );
 
   useEffect( () => {
-    var initialLists = [];
+    const initialLists = [];
 
     statuses.forEach( ( status ) => {
       initialLists.push( { id: status, tasks: [] } );

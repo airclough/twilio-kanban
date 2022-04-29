@@ -20,7 +20,7 @@ const DragAndDrop: FC<DragAndDropProps> = ( { list, status } ) => {
   if ( !tasks.length ) return <></>;
 
   return (
-    <div className="DragAndDrop">
+    <div className="col-3 DragAndDrop">
       <Droppable droppableId="dragAndDropDroppable">
         { ( droppableProvided, droppableSnapshot ) => (
           <ul
