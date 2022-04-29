@@ -41,12 +41,12 @@ export const AppProvider = ( { children }: Props ) => {
         .map( ( _, j ) => {
           const randomIndex = Math.floor( Math.random() * hipsterIpsumLength );
           const description = hipsterIpsum
-            .slice( randomIndex, Math.floor( Math.random() * hipsterIpsumLength ) + randomIndex )
+            .slice( randomIndex, Math.floor( Math.random() * hipsterIpsumLength ) + randomIndex );
           const [ name ] = description;
 
           return {
             description: description.join( ' ' ),
-            id: `${i}${j}`,
+            id: `${ i }${ j }`,
             name,
             status,
           };

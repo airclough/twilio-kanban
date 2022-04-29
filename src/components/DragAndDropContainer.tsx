@@ -3,12 +3,11 @@ import { DragDropContext } from 'react-beautiful-dnd';
 
 import DragAndDrop from './DragAndDrop';
 import { useApp } from '../contexts/App';
-import { List, Task, Status } from '../types/index.d';
+import { List, Status } from '../types/index.d';
 import { getListByStatus } from '../utils/index';
 
 const DragAnDropContainer = () => {
   const { lists, setLists, statuses } = useApp();
-  console.log( { lists, statuses } );
   const reorderTasks = ( {
     destinationIndex,
     sourceIndex,

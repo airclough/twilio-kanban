@@ -17,7 +17,7 @@ const style = ( isDraggingOver: boolean ) => ( {
 
 const DragAndDrop: FC<DragAndDropProps> = ( { status } ) => {
   const { lists } = useApp();
-  const { list } = getListByStatus( { lists, status } )
+  const { list } = getListByStatus( { lists, status } );
   const { tasks } = list;
 
   return (

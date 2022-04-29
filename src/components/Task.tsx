@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Task } from '../types/index';
+import { Task as TaskInterface } from '../types/index';
 
 const style = ( {
   draggablePropsStyle,
@@ -24,7 +24,7 @@ const Task = ( {
 }: {
   provided: any;
   snapshot: any;
-  task: Task;
+  task: TaskInterface;
 } ) => {
   const {
     description,
