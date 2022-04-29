@@ -5,12 +5,18 @@ interface GetListByStatusProp {
   status: string;
 }
 
+interface getListByStatusReturnType {
+  list: List;
+  listIndex: number;
+}
+
 export const getListByStatus = ( {
   lists,
   status,
-}: GetListByStatusProp ): List => {
+}: GetListByStatusProp ): getListByStatusReturnType => {
   const listMap = lists.map( ( { id } ) => id );
-  const index = listMap.indexOf( status );
+  const listIndex = listMap.indexOf( status );
+  const list = lists[ listIndex ];
 
-  return lists[ index ];
+  return { list, listIndex };
 };

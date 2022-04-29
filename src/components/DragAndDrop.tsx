@@ -2,10 +2,10 @@ import React, { FC } from 'react';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 
 import Task from './Task';
-import { List } from '../types/index';
+import { useApp } from '../contexts/App';
+import { getListByStatus } from '../utils/index';
 
 interface DragAndDropProps {
-  list: List;
   status: string;
 }
 
@@ -15,13 +15,15 @@ const style = ( isDraggingOver: boolean ) => ( {
   width: '100%',
 } );
 
-const DragAndDrop: FC<DragAndDropProps> = ( { list, status } ) => {
+const DragAndDrop: FC<DragAndDropProps> = ( { status } ) => {
+  const { lists } = useApp();
+  const { list } = getListByStatus( { lists, status } )
   const { tasks } = list;
   if ( !tasks.length ) return <></>;
 
   return (
     <div className="col-3 DragAndDrop">
-      <Droppable droppableId="dragAndDropDroppable">
+      <Droppable droppableId={ status }>
         { ( droppableProvided, droppableSnapshot ) => (
           <ul
             className="lineupList"
@@ -30,9 +32,9 @@ const DragAndDrop: FC<DragAndDropProps> = ( { list, status } ) => {
           >
             { tasks.map( ( task, index ) => (
               <Draggable
-                draggableId={ task.name }
+                draggableId={ task.id }
                 index={ index }
-                key={ task.name }
+                key={ task.id }
               >
                 { ( draggableProvided, draggableSnapshot ) => (
                   <Task
