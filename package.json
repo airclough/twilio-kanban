@@ -1,0 +1,14 @@
+{
+  "name": "twilio-kanban",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:airclough/twilio-kanban.git",
+  "author": "Robby Fairclough <robby.fairclough@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "next": "^12.1.5",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  }
+}
