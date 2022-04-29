@@ -66,7 +66,7 @@ export const AppProvider = ( { children }: Props ) => {
 
     statuses.forEach( ( status, i ) => {
       const tasks = Array
-        .from( { length: Math.floor( Math.random() * 5 ) + 1 } )
+        .from( { length: Math.floor( Math.random() * 3 ) + 1 } )
         .map( ( _, j ) => {
           const randomIndex = Math.floor( Math.random() * hipsterIpsumLength );
           const description = hipsterIpsum

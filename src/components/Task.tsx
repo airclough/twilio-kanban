@@ -69,7 +69,7 @@ const Task = ( {
       } ) }
     >
       <div className="taskHeader">
-        <h2>{ name }</h2>
+        <h3>{ name }</h3>
         <div className="arrows">
           <div className="iconContainer">
             <FontAwesomeIcon

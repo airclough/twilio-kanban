@@ -1,33 +1,65 @@
 .Index {
-  .Task {
-    .taskHeader {
-      align-items: center;
-      display: flex;
-      margin-bottom: 1rem;
+  .Header {
+    text-align: center;
 
+    img {
+      width: 640px;
+    }
+  }
+
+  .DragAnDropContainer {
+    .DragAndDrop {
       h2 {
-        flex-grow: 2;
-        font-size: 1.5rem;
+        color: #999;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        text-align: center;
       }
 
-      .arrows {
-        &:hover {
-          cursor: pointer;
-        }
+      .Task {
+        .taskHeader {
+          align-items: center;
+          display: flex;
+          margin-bottom: 1rem;
 
-        .iconContainer {
-          color: #ccc;
-          display: inline-block;
-          margin-right: .5rem;
-
-          &:last-of-type {
-            margin-right: 0;
+          h3 {
+            flex-grow: 2;
+            font-size: 1.5rem;
           }
 
-          .active {
-            color: #00a624;
+          .arrows {
+            &:hover {
+              cursor: pointer;
+            }
+
+            .iconContainer {
+              color: #ccc;
+              display: inline-block;
+              margin-right: .5rem;
+
+              &:last-of-type {
+                margin-right: 0;
+              }
+
+              .active {
+                color: #36d576;
+              }
+            }
           }
         }
+      }
+    }
+  }
+
+  .Footer {
+    padding: 6rem 0;
+    text-align: center;
+
+    p {
+      margin-bottom: 1rem;
+
+      &:last-of-type {
+        margin-bottom: 0;
       }
     }
   }

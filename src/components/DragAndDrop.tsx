@@ -22,6 +22,7 @@ const DragAndDrop: FC<DragAndDropProps> = ( { status } ) => {
 
   return (
     <div className="col-3 DragAndDrop">
+      <h2>{ status.replace( '_', ' ' ) }</h2>
       <Droppable droppableId={ status }>
         { ( droppableProvided, droppableSnapshot ) => (
           <ul
