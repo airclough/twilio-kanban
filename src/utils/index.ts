@@ -1,6 +1,6 @@
 import { List } from '../types/index';
 
-interface GetListByStatusProp {
+interface GetListByStatusProps {
   lists: List[];
   status: string;
 }
@@ -13,7 +13,7 @@ interface GetListByStatusReturnType {
 export const getListByStatus = ( {
   lists,
   status,
-}: GetListByStatusProp ): GetListByStatusReturnType => {
+}: GetListByStatusProps ): GetListByStatusReturnType => {
   const listMap = lists.map( ( { id } ) => id );
   const listIndex = listMap.indexOf( status );
   const list = lists[ listIndex ];

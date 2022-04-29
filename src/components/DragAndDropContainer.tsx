@@ -50,7 +50,6 @@ const DragAnDropContainer = () => {
     return [ { ...sourceList, tasks: sourceTasksClone }, { ...destinationList, tasks: destinationTasksClone } ];
   };
   const onDragEnd = ( result: any ) => {
-    console.log( { result } );
     const { destination, source } = result;
     if ( !destination ) return;
     const { droppableId: destinationId, index: destinationIndex } = destination;

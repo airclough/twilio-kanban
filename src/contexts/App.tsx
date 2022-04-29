@@ -6,10 +6,12 @@ import React, {
   useState,
 } from 'react';
 
-import { List, Status, Task } from '../types/index';
+import { List, Status } from '../types/index.d';
+import { getListByStatus } from '../utils/index';
 
 interface App {
   lists: List[];
+  moveTask: ( arg0: any ) => void;
   setLists: ( value: List[] ) => void;
   statuses: string[];
 }
@@ -31,6 +33,33 @@ export const AppProvider = ( { children }: Props ) => {
     'ONGOING',
     'DONE',
   ] );
+  const moveTask = ( {
+    destinationId,
+    sourceId,
+    sourceIndex,
+  } ) => {
+    const listsClone = [ ...lists ];
+    const {
+      list: sourceList,
+      listIndex: sourceListIndex
+    } = getListByStatus( { lists, status: sourceId } );
+    const {
+      list: destinationList,
+      listIndex: destinationListIndex,
+    } = getListByStatus( { lists, status: destinationId } );
+    const { tasks: destinationTasks } = destinationList;
+    const destinationTasksClone = [ ...destinationTasks ];
+    const { tasks: sourceTasks } = sourceList;
+    const sourceTasksClone = [ ...sourceTasks ];
+    const [ task ] = sourceTasksClone.splice( sourceIndex, 1 );
+    const updatedTask = { ...task, status: Status[ destinationId ] };
+
+    destinationTasksClone.push( updatedTask );
+
+    listsClone[ sourceListIndex ] = { ...sourceList, tasks: sourceTasksClone };
+    listsClone[ destinationListIndex ] = { ...destinationList, tasks: destinationTasksClone };
+    setLists( listsClone );
+  };
 
   useEffect( () => {
     const initialLists = [];
@@ -62,6 +91,7 @@ export const AppProvider = ( { children }: Props ) => {
     <AppContext.Provider
       value={ {
         lists,
+        moveTask,
         setLists,
         statuses,
       } }

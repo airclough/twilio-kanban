@@ -10,7 +10,7 @@ interface DragAndDropProps {
 }
 
 const style = ( isDraggingOver: boolean ) => ( {
-  background: isDraggingOver ? 'rgba(0,0,0,.5)' : 'rgba(0,0,0,0)',
+  background: isDraggingOver ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.05)',
   padding: '1rem',
   width: '100%',
 } );
@@ -37,6 +37,7 @@ const DragAndDrop: FC<DragAndDropProps> = ( { status } ) => {
               >
                 { ( draggableProvided, draggableSnapshot ) => (
                   <Task
+                    index={ index }
                     provided={ draggableProvided }
                     snapshot={ draggableSnapshot }
                     task={ task }
