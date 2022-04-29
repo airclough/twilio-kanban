@@ -73,14 +73,14 @@ const Task = ( {
         <div className="arrows">
           <div className="iconContainer">
             <FontAwesomeIcon
-              className={ left && 'active' || '' }
+              className={ ( left && 'active' ) || '' }
               icon={ faArrowLeft }
               onClick={ () => onClick( 'left' ) }
             />
           </div>
           <div className="iconContainer">
             <FontAwesomeIcon
-              className={ right && 'active' || '' }
+              className={ ( right && 'active' ) || '' }
               icon={ faArrowRight }
               onClick={ () => onClick( 'right' ) }
             />

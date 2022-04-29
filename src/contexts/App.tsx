@@ -41,7 +41,7 @@ export const AppProvider = ( { children }: Props ) => {
     const listsClone = [ ...lists ];
     const {
       list: sourceList,
-      listIndex: sourceListIndex
+      listIndex: sourceListIndex,
     } = getListByStatus( { lists, status: sourceId } );
     const {
       list: destinationList,

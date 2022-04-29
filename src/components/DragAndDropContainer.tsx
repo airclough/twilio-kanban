@@ -91,7 +91,7 @@ const DragAnDropContainer = () => {
       <div className="container">
         <div className="row">
           <DragDropContext onDragEnd={ onDragEnd }>
-            { statuses.map( ( status ) => <DragAndDrop status={ status } /> ) }
+            { statuses.map( ( status ) => <DragAndDrop key={ status } status={ status } /> ) }
           </DragDropContext>
         </div>
       </div>
