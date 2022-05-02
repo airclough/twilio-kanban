@@ -87,7 +87,7 @@ const Task = ( {
           </div>
         </div>
       </div>
-      <div>{ description }</div>
+      <p>{ description }</p>
     </div>
   );
 };

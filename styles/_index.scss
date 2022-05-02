@@ -4,6 +4,10 @@
 
     img {
       width: 640px;
+
+      @media( max-width: $mobileMax ) {
+        width: 320px;
+      }
     }
   }
 
@@ -59,11 +63,33 @@
     padding: 6rem 0;
     text-align: center;
 
-    p {
-      margin-bottom: 1rem;
+    .container {
+      margin: 0 auto;
+      width: 640px;
 
-      &:last-of-type {
-        margin-bottom: 0;
+      @media( max-width: $mobileMax ) {
+        width: 320px;
+      }
+
+      p {
+        margin-bottom: 1rem;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      a {
+        margin-right: 1rem;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
       }
     }
   }
