@@ -4,8 +4,10 @@ import React, { FC, useEffect } from 'react';
 import DragAnDropContainer from '../src/components/DragAndDropContainer';
 import Footer from '../src/components/Footer';
 import Header from '../src/components/Header';
+import { useApp } from '../src/contexts/App';
 
 const Index: FC = () => {
+  const { setTasks } = useApp();
   const tasksQuery = gql`
     query ( $numTasks: Int! ) {
       getTasks ( numTasks: $numTasks ) {
@@ -28,6 +30,10 @@ const Index: FC = () => {
 
   useEffect( () => {
     console.log( { data, error } );
+    if ( !data ) return;
+    const { getTasks: tasks } = data;
+
+    setTasks( tasks );
   }, [ data, error ] );
 
   return (
