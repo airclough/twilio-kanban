@@ -25,8 +25,8 @@ const DragAndDrop: FC<DragAndDropProps> = ( { status } ) => {
       <h2>{ status.replace( '_', ' ' ) }</h2>
       <Droppable droppableId={ status }>
         { ( droppableProvided, droppableSnapshot ) => (
-          <ul
-            className="lineupList"
+          <div
+            className="taskList"
             ref={ droppableProvided.innerRef }
             style={ style( droppableSnapshot.isDraggingOver ) }
           >
@@ -47,7 +47,7 @@ const DragAndDrop: FC<DragAndDropProps> = ( { status } ) => {
               </Draggable>
             ) ) }
             { droppableProvided.placeholder }
-          </ul>
+          </div>
         ) }
       </Droppable>
     </div>

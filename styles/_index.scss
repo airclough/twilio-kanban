@@ -4,6 +4,10 @@
 
     img {
       width: 640px;
+
+      @media( max-width: $mobileMax ) {
+        width: 320px;
+      }
     }
   }
 
@@ -16,33 +20,37 @@
         text-align: center;
       }
 
-      .Task {
-        .taskHeader {
-          align-items: center;
-          display: flex;
-          margin-bottom: 1rem;
+      .taskList {
+        min-height: 8rem;
 
-          h3 {
-            flex-grow: 2;
-            font-size: 1.5rem;
-          }
+        .Task {
+          .taskHeader {
+            align-items: center;
+            display: flex;
+            margin-bottom: 1rem;
 
-          .arrows {
-            &:hover {
-              cursor: pointer;
+            h3 {
+              flex-grow: 2;
+              font-size: 1.5rem;
             }
 
-            .iconContainer {
-              color: #ccc;
-              display: inline-block;
-              margin-right: .5rem;
-
-              &:last-of-type {
-                margin-right: 0;
+            .arrows {
+              &:hover {
+                cursor: pointer;
               }
 
-              .active {
-                color: #36d576;
+              .iconContainer {
+                color: #ccc;
+                display: inline-block;
+                margin-right: .5rem;
+
+                &:last-of-type {
+                  margin-right: 0;
+                }
+
+                .active {
+                  color: #36d576;
+                }
               }
             }
           }
@@ -52,14 +60,37 @@
   }
 
   .Footer {
+    color: #999;
     padding: 6rem 0;
     text-align: center;
 
-    p {
-      margin-bottom: 1rem;
+    .container {
+      margin: 0 auto;
+      width: 640px;
 
-      &:last-of-type {
-        margin-bottom: 0;
+      @media( max-width: $mobileMax ) {
+        width: 320px;
+      }
+
+      p {
+        margin-bottom: 1rem;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      a {
+        margin-right: 1rem;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
       }
     }
   }
