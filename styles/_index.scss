@@ -16,33 +16,37 @@
         text-align: center;
       }
 
-      .Task {
-        .taskHeader {
-          align-items: center;
-          display: flex;
-          margin-bottom: 1rem;
+      .taskList {
+        min-height: 8rem;
 
-          h3 {
-            flex-grow: 2;
-            font-size: 1.5rem;
-          }
+        .Task {
+          .taskHeader {
+            align-items: center;
+            display: flex;
+            margin-bottom: 1rem;
 
-          .arrows {
-            &:hover {
-              cursor: pointer;
+            h3 {
+              flex-grow: 2;
+              font-size: 1.5rem;
             }
 
-            .iconContainer {
-              color: #ccc;
-              display: inline-block;
-              margin-right: .5rem;
-
-              &:last-of-type {
-                margin-right: 0;
+            .arrows {
+              &:hover {
+                cursor: pointer;
               }
 
-              .active {
-                color: #36d576;
+              .iconContainer {
+                color: #ccc;
+                display: inline-block;
+                margin-right: .5rem;
+
+                &:last-of-type {
+                  margin-right: 0;
+                }
+
+                .active {
+                  color: #36d576;
+                }
               }
             }
           }

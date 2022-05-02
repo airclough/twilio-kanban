@@ -11,6 +11,7 @@ import { getListByStatus } from '../utils/index';
 
 interface App {
   lists: List[];
+  loading: boolean;
   moveTask: ( arg0: any ) => void;
   setLists: ( value: List[] ) => void;
   setTasks: ( value: Task[] ) => void;
@@ -39,6 +40,7 @@ export const AppProvider = ( { children }: Props ) => {
   } );
   const [ lists, setLists ] = useState<App[ 'lists' ]>( initialLists );
   const [ tasks, setTasks ] = useState<App[ 'tasks' ]>( [] );
+  const [ loading, setLoading ] = useState<App[ 'loading' ]>( true );
   const moveTask = ( {
     destinationId,
     sourceId,
@@ -80,12 +82,14 @@ export const AppProvider = ( { children }: Props ) => {
     } );
 
     setLists( listsClone );
+    setLoading( false );
   }, [ tasks ] );
 
   return (
     <AppContext.Provider
       value={ {
         lists,
+        loading,
         moveTask,
         setLists,
         setTasks,

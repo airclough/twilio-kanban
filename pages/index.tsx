@@ -4,6 +4,7 @@ import React, { FC, useEffect } from 'react';
 import DragAnDropContainer from '../src/components/DragAndDropContainer';
 import Footer from '../src/components/Footer';
 import Header from '../src/components/Header';
+import ProgressBar from '../src/components/ProgressBar';
 import { useApp } from '../src/contexts/App';
 
 const Index: FC = () => {
@@ -29,7 +30,6 @@ const Index: FC = () => {
   }, [] );
 
   useEffect( () => {
-    console.log( { data, error } );
     if ( !data ) return;
     const { getTasks: tasks } = data;
 
@@ -38,6 +38,7 @@ const Index: FC = () => {
 
   return (
     <div className="Index">
+      <ProgressBar />
       <Header />
       <DragAnDropContainer />
       <Footer />
